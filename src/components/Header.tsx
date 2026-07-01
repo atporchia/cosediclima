@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "/check", label: "Clima Check" },
   { href: "/tecniche", label: "Argomenti ricorrenti" },
   { href: "/scienza", label: "Cosa ne pensa la scienza" },
   { href: "/morti-evitabili", label: "Morti evitabili" },
