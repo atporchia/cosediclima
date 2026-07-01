@@ -1,4 +1,6 @@
 import type { ManipulationTechnique } from "./claims";
+import type { Locale } from "@/i18n/routing";
+import { techniques as techniquesEn } from "./en/techniques";
 
 export interface Technique {
   id: ManipulationTechnique;
@@ -183,4 +185,15 @@ export const techniques: Technique[] = [
 
 export function getTechniqueById(id: ManipulationTechnique): Technique | undefined {
   return techniques.find((technique) => technique.id === id);
+}
+
+export function getTechniques(locale: Locale): Technique[] {
+  return locale === "en" ? techniquesEn : techniques;
+}
+
+export function getTechniqueByIdForLocale(
+  id: ManipulationTechnique,
+  locale: Locale,
+): Technique | undefined {
+  return getTechniques(locale).find((technique) => technique.id === id);
 }

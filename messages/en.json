@@ -1,0 +1,210 @@
+{
+  "Metadata": {
+    "title": "CoseDiClima | Climate isn't an opinion",
+    "description": "Spot and take down climate myths, denial, and disinformation with short replies, solid data, and reliable sources. Run a Climate Check before you share.",
+    "ogTitle": "CoseDiClima — Climate isn't an opinion",
+    "ogDescription": "Check a climate claim before you share it. Find out if it's false, misleading, or manipulative."
+  },
+  "Header": {
+    "navLabel": "Main navigation",
+    "nav": {
+      "tecniche": "Common tactics",
+      "scienza": "What the science says",
+      "mortiEvitabili": "Preventable deaths",
+      "chiPagaIlConto": "Who pays the bill",
+      "fonti": "Sources",
+      "about": "The Project"
+    }
+  },
+  "Footer": {
+    "text": "CoseDiClima is an independent project. Every factual claim is linked to a verifiable source — see the <fontiLink>Sources</fontiLink> page."
+  },
+  "HomePage": {
+    "heroTitle": "Climate isn't an opinion.",
+    "heroSubtitle": "Check it before you share it.",
+    "heroDescription": "CoseDiClima helps you take down climate myths, denial, and delay tactics with short replies, solid data, and reliable sources.",
+    "seeWhoPays": "See who pays the bill",
+    "tryAClaim": "Try a claim you've heard before",
+    "exampleClaims": {
+      "sempreCambiato": "The climate has always changed.",
+      "allallCina": "What about China, then?",
+      "eliteScam": "It's all a scam by the elites."
+    },
+    "whyExistsTitle": "People are dying while we argue about whether the problem is real.",
+    "whyExistsBody": "Every time a climate conversation ends in “it's always happened before,” “what about China,” or “it's all the elites,” the outcome is the same: less action, more delay, higher costs for the people who can't just walk away.",
+    "notLeftRightTitle": "This isn't a left-vs-right issue.",
+    "notLeftRightP1": "People who deny the problem often paint it as a left-wing obsession. But the data doesn't have a political color — and neither do the delays.",
+    "notLeftRightP2Pre": "In Italy, for example, the",
+    "notLeftRightP2Link1": "Meloni government has slowed down permits for new renewable plants in Sardinia",
+    "notLeftRightP2Mid": ", and",
+    "notLeftRightP2Link2": "voted against or abstained on EU measures",
+    "notLeftRightP2Post": "like the 2035 combustion-engine phase-out, the Nature Restoration Law, and the Euro 7 emissions rules: as of March 2026, Italy had reached only 33% of its own 2030 renewables target.",
+    "notLeftRightP3Pre": "But center-left governments, in Italy and elsewhere, haven't done any better when they were in power. Globally,",
+    "notLeftRightP3Link": "95% of countries have a climate plan on paper",
+    "notLeftRightP3Post": "— right, left, or center in charge makes no real difference — yet the policies actually in force today would cut emissions by only 2% by 2030, against the 43% needed to stay under 1.5°C.",
+    "notLeftRightP4Pre": "Solutions exist, and some have actually worked:",
+    "notLeftRightP4Link": "a study published in Science",
+    "notLeftRightP4Post": "analyzed 1,500 climate policies implemented over two decades and found 63 that produced real emissions cuts. The problem isn't a lack of solutions. It's that no political side has applied them enough.",
+    "whatItDoesTitle": "CoseDiClima doesn't hand you a treatise. It hands you a reply.",
+    "whatItDoesIntro": "For every claim, you get:",
+    "whatItDoesLi1": "what's false or misleading about it;",
+    "whatItDoesLi2": "which rhetorical technique it uses;",
+    "whatItDoesLi3": "a short reply you can copy;",
+    "whatItDoesLi4": "a fuller explanation;",
+    "whatItDoesLi5": "reliable scientific sources.",
+    "tecnicheTeaserTitle": "The most common rhetorical tactics in the climate debate.",
+    "tecnicheTeaserBody": "Cherry-picking, false balance, whataboutism, doomism: learn to spot them before you fall into the wrong argument.",
+    "tecnicheTeaserCta": "See the full tactics library →",
+    "scienzaTeaserTitle": "What the science says.",
+    "scienzaTeaserBody": "Not just studies and scientific consensus: also who paid to make you doubt it, and how.",
+    "scienzaTeaserCta": "See the sources and conflicts of interest →",
+    "mortiTeaserTitle": "Preventable deaths.",
+    "mortiTeaserBody": "Climate change doesn't only kill in the future. It's killing now, especially through extreme heat.",
+    "mortiTeaserCta": "See the human cost →",
+    "costoTeaserTitle": "Who pays the bill?",
+    "costoTeaserBody": "Climate denial doesn't cost nothing. It costs the people who can't move away, insure themselves, or air-condition their way out of it.",
+    "costoTeaserCta": "See who pays →",
+    "sourcesStripLabel": "Data and sources from",
+    "finalCtaTitle": "Climate isn't an opinion. Check it before you share it.",
+    "finalCtaButton": "Run a Climate Check"
+  },
+  "ClaimResultCard": {
+    "tenSecondReplyLabel": "10-second reply",
+    "copyShortLabel": "Copy the short reply",
+    "whyPersuadesLabel": "Why this claim is persuasive",
+    "emotionalReframeLabel": "Emotional reframe",
+    "longerReplyLabel": "Fuller explanation",
+    "copyLabel": "Copy",
+    "scientificBackupLabel": "Scientific backup",
+    "techniqueLabel": "Rhetorical technique: ",
+    "internationalAngleLabel": "International angle",
+    "sourcesLabel": "Sources",
+    "shareCardLabel": "Shareable card"
+  },
+  "PersonaStrategyCard": {
+    "coreFearLabel": "Core fear",
+    "identityDefenseLabel": "Identity defense",
+    "persuasionStrategyLabel": "Persuasion strategy",
+    "avoidLabel": "Avoid saying",
+    "sayInsteadLabel": "Say instead",
+    "bestFramesLabel": "Best frames",
+    "exampleRepliesLabel": "Example replies",
+    "gentle": "Gentle",
+    "direct": "Direct",
+    "sharp": "Sharp"
+  },
+  "ScienzaTabs": {
+    "ariaLabel": "Science sections",
+    "tabConsenso": "The scientific consensus",
+    "tabConflitti": "Who paid to make you doubt it",
+    "conflictsIntro": "Every case below is documented through investigative journalism, peer-reviewed studies, or funding-transparency research — not generic suspicion. Some of the parties named have publicly disputed the findings reported here.",
+    "conflictOfInterestLabel": "Conflict of interest: ",
+    "evidenceLabel": "What the evidence shows: "
+  },
+  "VerdictBadge": {
+    "falso": "False",
+    "fuorviante": "Misleading",
+    "parzialmente_vero": "Partly true",
+    "ritardo": "Delay tactic",
+    "doomismo": "Doomism",
+    "complotto": "Unfounded conspiracy",
+    "falsa_equivalenza": "False equivalence"
+  },
+  "ShareCard": {
+    "tagline": "Climate isn't an opinion. Check it before you share it.",
+    "copyForShareLabel": "Copy to share",
+    "shareButtonLabel": "Share"
+  },
+  "FeedbackButtons": {
+    "question": "Does this reply help you respond?",
+    "thanks": "Thanks for the feedback: \"{option}\".",
+    "options": ["Yes", "No", "Too long", "Too aggressive", "Too weak", "I want more data", "I want a harsher version", "I want a calmer version"]
+  },
+  "CopyButton": {
+    "defaultLabel": "Copy",
+    "copied": "Copied",
+    "failed": "Select the text manually"
+  },
+  "HumanCostCard": {
+    "heat": "Extreme heat",
+    "flood": "Flood",
+    "fire": "Wildfire",
+    "drought": "Drought",
+    "storm": "Storm",
+    "mixed": "Mixed event"
+  },
+  "TechniqueCard": {
+    "exampleLabel": "Typical example",
+    "whyItWorksLabel": "Why it works: ",
+    "howToRespondLabel": "How to respond: "
+  },
+  "ClaimPage": {
+    "descriptionTemplate": "Find out why \"{claim}\" is {verdict}, and how to respond with data and sources.",
+    "verdictFalse": "false",
+    "verdictMisleading": "misleading"
+  },
+  "PersonaStrategyPage": {
+    "titlePrefix": "How to convince: "
+  },
+  "ClaimInput": {
+    "label": "Paste a climate claim",
+    "placeholder": "Paste a claim like: \"The climate has always changed\"",
+    "submit": "Run a Climate Check",
+    "suggestionsIntro": "I couldn't find an exact match. Maybe you meant:",
+    "noMatch": "I couldn't find a similar claim in our archive. Try rephrasing, or explore the examples below."
+  },
+  "CheckPage": {
+    "metaTitle": "Climate Check | CoseDiClima",
+    "metaDescription": "Paste a climate claim and find out if it's false, misleading, or manipulative, with a ready-to-copy reply.",
+    "title": "Climate Check",
+    "body": "Paste a climate claim you've heard or read somewhere. We'll tell you if it's false, misleading, or manipulative, and give you a ready-made reply."
+  },
+  "PersonaPage": {
+    "metaTitle": "What kind of person are you trying to convince? | CoseDiClima",
+    "metaDescription": "Pick the person you're talking to for a tailored persuasion strategy: what to say, what to avoid, and ready replies in three different tones.",
+    "title": "What kind of person are you trying to convince?",
+    "body": "Different people respond to different frames. Pick who you're talking to for a strategy built for them."
+  },
+  "ScienzaPage": {
+    "metaTitle": "What the science says | CoseDiClima",
+    "metaDescription": "The scientific consensus on climate, and documented cases of companies that funded doubt campaigns, with verifiable sources for every claim.",
+    "title": "What the science says",
+    "body": "On one side, the scientific consensus — verifiable and public. On the other, who funded organized campaigns to make you doubt it — documented with verifiable sources, not suspicion."
+  },
+  "ChiPagaIlContoPage": {
+    "metaTitle": "Who pays the bill? | CoseDiClima",
+    "metaDescription": "Climate denial doesn't cost nothing. It costs the people who can't move away, insure themselves, or air-condition their way out of it: health, housing, food, taxes, insurance, water, jobs, and energy.",
+    "title": "Climate denial doesn't cost nothing. It costs the people who can't move away.",
+    "body": "While we argue about whether the problem is real, the bill arrives as heat, damage, insurance, pricier food, taxes, water, and health costs. The wealthiest can relocate, insure themselves, rebuild, air-condition, and protect their assets. Ordinary people absorb the heat, the floods, the smoke, the food prices, the taxes, and the rising insurance premiums."
+  },
+  "FontiPage": {
+    "metaTitle": "Sources | CoseDiClima",
+    "metaDescription": "The scientific, institutional, and journalistic sources CoseDiClima uses to verify every claim: no blogs, no unverified activist pages.",
+    "title": "Sources",
+    "body": "Every factual claim on CoseDiClima is linked to at least one of these sources. We don't use blogs, unverified activist pages, or political content as factual sources.",
+    "officialSite": "Official site ↗",
+    "usedFor": "Used for: "
+  },
+  "MortiEvitabiliPage": {
+    "metaTitle": "Preventable deaths | CoseDiClima",
+    "metaDescription": "Climate change doesn't only kill in the future. Extreme heat, floods, fires, and drought are already turning climate risk into real deaths, damage, and costs.",
+    "title": "Climate change doesn't only kill in the future. It's killing now.",
+    "body": "Extreme heat, floods, fires, drought, and storms are already turning climate risk into real deaths, damage, and costs. Not every event is caused by climate alone: attribution studies estimate how much more likely, intense, or damaging it made each one."
+  },
+  "TecnichePage": {
+    "metaTitle": "The most common rhetorical tactics in the climate debate | CoseDiClima",
+    "metaDescription": "Cherry-picking, false balance, whataboutism, doomism, and other rhetorical tactics used in the climate debate: learn to spot them and respond.",
+    "title": "The most common rhetorical tactics in the climate debate",
+    "body": "Climate denial rarely shows up as outright denial. It usually relies on one of these rhetorical tactics."
+  },
+  "AboutPage": {
+    "metaTitle": "The Project | CoseDiClima",
+    "metaDescription": "Why CoseDiClima exists, and who's behind it: Attilio, an Italian Product Manager based in Poland, with a passion for technology and the environment.",
+    "whyTitle": "Why CoseDiClima",
+    "whyP1": "CoseDiClima started from a simple premise: many climate myths work because they're short, emotional, and easy to repeat. Scientific replies, on the other hand, often arrive too late, too long, or too complicated.",
+    "whyP2": "I tried to do something different: turn reliable data and sources into replies that are short, clear, and shareable.",
+    "whyP3": "Climate isn't an opinion. Check it before you share it.",
+    "whoTitle": "About me",
+    "whoBody": "Hi, I'm Attilio, an Italian Product Manager who's lived in Poland for the past 10 years. I have two passions that rarely get along: technology and the environment. CoseDiClima is my attempt to bring them together."
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "Metadata": {
+    "title": "CoseDiClima | Il clima non è un'opinione",
+    "description": "Riconosci e smonta bufale climatiche, negazionismo e disinformazione con risposte brevi, dati solidi e fonti affidabili. Fai un Clima Check prima di condividere.",
+    "ogTitle": "CoseDiClima — Il clima non è un'opinione",
+    "ogDescription": "Controlla una frase sul clima prima di condividerla. Scopri se è falsa, fuorviante o manipolatoria."
+  },
+  "Header": {
+    "navLabel": "Navigazione principale",
+    "nav": {
+      "tecniche": "Argomenti ricorrenti",
+      "scienza": "Cosa ne pensa la scienza",
+      "mortiEvitabili": "Morti evitabili",
+      "chiPagaIlConto": "Chi paga il conto",
+      "fonti": "Fonti",
+      "about": "Il Progetto"
+    }
+  },
+  "Footer": {
+    "text": "CoseDiClima è uno strumento indipendente. Ogni affermazione fattuale è collegata a una fonte verificabile — vedi la pagina <fontiLink>Fonti</fontiLink>."
+  },
+  "HomePage": {
+    "heroTitle": "Il clima non è un'opinione.",
+    "heroSubtitle": "Controlla prima di condividere.",
+    "heroDescription": "CoseDiClima ti aiuta a smontare bufale climatiche, negazionismo e ritardi con risposte brevi, dati solidi e fonti affidabili.",
+    "seeWhoPays": "Vedi chi paga il conto",
+    "tryAClaim": "Prova con una frase che hai sentito",
+    "exampleClaims": {
+      "sempreCambiato": "Il clima è sempre cambiato.",
+      "allallCina": "E allora la Cina?",
+      "eliteScam": "È tutta una truffa delle élite."
+    },
+    "whyExistsTitle": "Persone muoiono mentre discutiamo se il problema esiste.",
+    "whyExistsBody": "Ogni volta che una discussione climatica finisce in “è sempre successo”, “e allora la Cina”, “sono tutte élite”, il risultato è lo stesso: meno azione, più ritardo, più costi per chi non può scappare.",
+    "notLeftRightTitle": "Non è una questione di destra o sinistra.",
+    "notLeftRightP1": "Chi nega il problema spesso lo dipinge come un'ossessione della sinistra. Ma i dati non hanno un colore politico — e nemmeno i ritardi.",
+    "notLeftRightP2Pre": "In Italia, il",
+    "notLeftRightP2Link1": "governo Meloni ha rallentato le autorizzazioni per nuovi impianti rinnovabili in Sardegna",
+    "notLeftRightP2Mid": ", e",
+    "notLeftRightP2Link2": "ha votato contro o si è astenuto su misure UE",
+    "notLeftRightP2Post": "come lo stop ai motori endotermici dal 2035, la Nature Restoration Law e il regolamento Euro 7: a marzo 2026 l'Italia aveva raggiunto solo il 33% del proprio obiettivo rinnovabili 2030.",
+    "notLeftRightP3Pre": "Ma i governi di centrosinistra, in Italia e altrove, non hanno fatto meglio quando erano al potere. A livello globale, il",
+    "notLeftRightP3Link": "95% dei paesi ha un piano climatico sulla carta",
+    "notLeftRightP3Post": "— governato da destra, sinistra o centro non fa differenza — ma le politiche oggi in vigore porterebbero a una riduzione delle emissioni di appena il 2% entro il 2030, contro il 43% necessario per restare sotto gli 1,5°C.",
+    "notLeftRightP4Pre": "Le soluzioni esistono, e in alcuni casi hanno funzionato:",
+    "notLeftRightP4Link": "uno studio pubblicato su Science",
+    "notLeftRightP4Post": "ha analizzato 1.500 politiche climatiche attuate in due decenni e ne ha trovate 63 che hanno prodotto riduzioni reali delle emissioni. Il problema non è la mancanza di soluzioni. È che nessuno schieramento le ha applicate abbastanza.",
+    "whatItDoesTitle": "CoseDiClima non ti dà un trattato. Ti dà una risposta.",
+    "whatItDoesIntro": "Per ogni frase trovi:",
+    "whatItDoesLi1": "cosa c'è di falso o fuorviante;",
+    "whatItDoesLi2": "quale tecnica retorica usa;",
+    "whatItDoesLi3": "una risposta breve da copiare;",
+    "whatItDoesLi4": "una spiegazione più completa;",
+    "whatItDoesLi5": "fonti scientifiche affidabili.",
+    "tecnicheTeaserTitle": "Le tecniche retoriche più comuni nel dibattito climatico.",
+    "tecnicheTeaserBody": "Cherry-picking, falso equilibrio, benaltrismo, doomismo: impara a riconoscerle prima di cadere nella discussione sbagliata.",
+    "tecnicheTeaserCta": "Vedi la libreria delle tecniche →",
+    "scienzaTeaserTitle": "Cosa ne pensa la scienza.",
+    "scienzaTeaserBody": "Non solo studi e consenso scientifico: anche chi ha pagato per farti dubitare, e come lo ha fatto.",
+    "scienzaTeaserCta": "Guarda le fonti e i conflitti di interesse →",
+    "mortiTeaserTitle": "Morti evitabili.",
+    "mortiTeaserBody": "Il cambiamento climatico non uccide solo in futuro. Uccide adesso, soprattutto con il caldo estremo.",
+    "mortiTeaserCta": "Vedi il costo umano →",
+    "costoTeaserTitle": "Chi paga il conto?",
+    "costoTeaserBody": "Il negazionismo climatico non costa zero. Costa a chi non può scappare, assicurarsi o climatizzare la propria vita.",
+    "costoTeaserCta": "Vedi chi paga →",
+    "sourcesStripLabel": "Dati e fonti da",
+    "finalCtaTitle": "Il clima non è un'opinione. Controlla prima di condividere.",
+    "finalCtaButton": "Fai un Clima Check"
+  },
+  "ClaimResultCard": {
+    "tenSecondReplyLabel": "Risposta in 10 secondi",
+    "copyShortLabel": "Copia la risposta breve",
+    "whyPersuadesLabel": "Perché questa frase convince",
+    "emotionalReframeLabel": "Reframe emotivo",
+    "longerReplyLabel": "Spiegazione più completa",
+    "copyLabel": "Copia",
+    "scientificBackupLabel": "Backup scientifico",
+    "techniqueLabel": "Tecnica retorica: ",
+    "internationalAngleLabel": "Angolo internazionale",
+    "sourcesLabel": "Fonti",
+    "shareCardLabel": "Card da condividere"
+  },
+  "PersonaStrategyCard": {
+    "coreFearLabel": "Paura di fondo",
+    "identityDefenseLabel": "Difesa identitaria",
+    "persuasionStrategyLabel": "Strategia di persuasione",
+    "avoidLabel": "Da evitare",
+    "sayInsteadLabel": "Da dire invece",
+    "bestFramesLabel": "Frame migliori",
+    "exampleRepliesLabel": "Risposte di esempio",
+    "gentle": "Gentile",
+    "direct": "Diretta",
+    "sharp": "Tagliente"
+  },
+  "ScienzaTabs": {
+    "ariaLabel": "Sezioni scienza",
+    "tabConsenso": "Il consenso scientifico",
+    "tabConflitti": "Chi ha pagato per farti dubitare",
+    "conflictsIntro": "Ogni caso qui sotto è documentato da inchieste giornalistiche, studi peer-reviewed o ricerche di trasparenza sui finanziamenti — non da sospetti generici. Alcuni dei soggetti citati hanno pubblicamente contestato le conclusioni riportate.",
+    "conflictOfInterestLabel": "Conflitto di interesse: ",
+    "evidenceLabel": "Cosa mostrano le prove: "
+  },
+  "VerdictBadge": {
+    "falso": "Falso",
+    "fuorviante": "Fuorviante",
+    "parzialmente_vero": "Parzialmente vero",
+    "ritardo": "Argomento di ritardo",
+    "doomismo": "Doomismo",
+    "complotto": "Complotto senza prove",
+    "falsa_equivalenza": "Falsa equivalenza"
+  },
+  "ShareCard": {
+    "tagline": "Il clima non è un'opinione. Controlla prima di condividere.",
+    "copyForShareLabel": "Copia per condividere",
+    "shareButtonLabel": "Condividi"
+  },
+  "FeedbackButtons": {
+    "question": "Questa risposta ti aiuta a rispondere?",
+    "thanks": "Grazie per il feedback: \"{option}\".",
+    "options": ["Sì", "No", "Troppo lunga", "Troppo aggressiva", "Troppo debole", "Voglio più dati", "Voglio una versione più dura", "Voglio una versione più calma"]
+  },
+  "CopyButton": {
+    "defaultLabel": "Copia",
+    "copied": "Copiato",
+    "failed": "Seleziona il testo manualmente"
+  },
+  "HumanCostCard": {
+    "heat": "Caldo estremo",
+    "flood": "Alluvione",
+    "fire": "Incendio",
+    "drought": "Siccità",
+    "storm": "Tempesta",
+    "mixed": "Evento composito"
+  },
+  "TechniqueCard": {
+    "exampleLabel": "Esempio tipico",
+    "whyItWorksLabel": "Perché funziona: ",
+    "howToRespondLabel": "Come rispondere: "
+  },
+  "ClaimPage": {
+    "descriptionTemplate": "Scopri perché \"{claim}\" è {verdict} e come rispondere con dati e fonti.",
+    "verdictFalse": "falso",
+    "verdictMisleading": "fuorviante"
+  },
+  "PersonaStrategyPage": {
+    "titlePrefix": "Come convincere: "
+  },
+  "ClaimInput": {
+    "label": "Incolla una frase sul clima",
+    "placeholder": "Incolla una frase tipo: \"Il clima è sempre cambiato\"",
+    "submit": "Fai un Clima Check",
+    "suggestionsIntro": "Non ho trovato una corrispondenza esatta. Forse cercavi:",
+    "noMatch": "Non ho trovato nessuna frase simile nel nostro archivio. Prova a riformulare, o esplora gli esempi qui sotto."
+  },
+  "CheckPage": {
+    "metaTitle": "Clima Check | CoseDiClima",
+    "metaDescription": "Incolla una frase sul clima e scopri se è falsa, fuorviante o manipolatoria, con una risposta pronta da copiare.",
+    "title": "Clima Check",
+    "body": "Incolla una frase sul clima che hai sentito o letto da qualche parte. Ti diciamo se è falsa, fuorviante o manipolatoria, e ti diamo una risposta pronta."
+  },
+  "PersonaPage": {
+    "metaTitle": "Che tipo di persona vuoi convincere? | CoseDiClima",
+    "metaDescription": "Scegli la persona che hai davanti per una strategia di persuasione su misura: cosa dire, cosa evitare, e risposte pronte in tre toni diversi.",
+    "title": "Che tipo di persona vuoi convincere?",
+    "body": "Persone diverse rispondono a frame diversi. Scegli chi hai davanti per una strategia pensata su misura."
+  },
+  "ScienzaPage": {
+    "metaTitle": "Cosa ne pensa la scienza | CoseDiClima",
+    "metaDescription": "Il consenso scientifico sul clima e i casi documentati di aziende che hanno finanziato campagne di dubbio, con fonti verificabili per ogni affermazione.",
+    "title": "Cosa ne pensa la scienza",
+    "body": "Da un lato il consenso scientifico, verificabile e pubblico. Dall'altro, chi ha finanziato campagne organizzate per farti dubitare — documentato con fonti verificabili, non con sospetti."
+  },
+  "ChiPagaIlContoPage": {
+    "metaTitle": "Chi paga il conto? | CoseDiClima",
+    "metaDescription": "Il negazionismo climatico non costa zero. Costa a chi non può scappare, assicurarsi o climatizzare la propria vita: salute, casa, cibo, tasse, assicurazione, acqua, lavoro ed energia.",
+    "title": "Il negazionismo climatico non costa zero. Costa a chi non può scappare.",
+    "body": "Mentre discutiamo se il problema esiste, il conto arriva sotto forma di caldo, danni, assicurazioni, cibo più caro, tasse, acqua e salute. I più ricchi possono spostarsi, assicurarsi, ricostruire, climatizzare e proteggere i propri beni. Le persone normali assorbono il caldo, le alluvioni, il fumo, i prezzi del cibo, le tasse e gli aumenti assicurativi."
+  },
+  "FontiPage": {
+    "metaTitle": "Fonti | CoseDiClima",
+    "metaDescription": "Le fonti scientifiche, istituzionali e giornalistiche usate da CoseDiClima per verificare ogni affermazione: nessun blog, nessuna pagina attivista non verificata.",
+    "title": "Fonti",
+    "body": "Ogni affermazione fattuale su CoseDiClima è collegata ad almeno una di queste fonti. Non usiamo blog, pagine attiviste non verificate o contenuti politici come fonti fattuali.",
+    "officialSite": "Sito ufficiale ↗",
+    "usedFor": "Usata per: "
+  },
+  "MortiEvitabiliPage": {
+    "metaTitle": "Morti evitabili | CoseDiClima",
+    "metaDescription": "Il cambiamento climatico non uccide solo in futuro. Caldo estremo, alluvioni, incendi e siccità stanno già trasformando il rischio climatico in morti, danni e costi reali.",
+    "title": "Il cambiamento climatico non uccide solo in futuro. Uccide adesso.",
+    "body": "Caldo estremo, alluvioni, incendi, siccità e tempeste stanno già trasformando il rischio climatico in morti, danni e costi reali. Non ogni evento è causato solo dal clima: gli studi di attribuzione stimano quanto lo abbia reso più probabile, più intenso o più dannoso."
+  },
+  "TecnichePage": {
+    "metaTitle": "Le tecniche retoriche più comuni nel dibattito climatico | CoseDiClima",
+    "metaDescription": "Cherry-picking, falso equilibrio, benaltrismo, doomismo e altre tecniche retoriche usate nel dibattito climatico: impara a riconoscerle e a rispondere.",
+    "title": "Le tecniche retoriche più comuni nel dibattito climatico",
+    "body": "Il negazionismo climatico raramente si presenta come negazione diretta. Di solito usa una di queste tecniche retoriche."
+  },
+  "AboutPage": {
+    "metaTitle": "Il Progetto | CoseDiClima",
+    "metaDescription": "Perché esiste CoseDiClima, e chi c'è dietro: Attilio, Product Manager italiano residente in Polonia, con la passione per tecnologia e ambiente.",
+    "whyTitle": "Perché CoseDiClima",
+    "whyP1": "CoseDiClima nasce da una premessa semplice: molte bufale climatiche funzionano perché sono brevi, emotive e facili da ripetere. Le risposte scientifiche, invece, spesso arrivano troppo tardi, troppo lunghe o troppo complicate.",
+    "whyP2": "Ho provato a fare una cosa diversa: trasformare dati e fonti affidabili in risposte brevi, chiare e condivisibili.",
+    "whyP3": "Il clima non è un'opinione. Controlla prima di condividere.",
+    "whoTitle": "Chi sono",
+    "whoBody": "Ciao, sono Attilio, un Product Manager italiano da 10 anni residente in Polonia. Ho due passioni che raramente vanno d'accordo tra loro: la tecnologia e l'ambiente. CoseDiClima nasce dal tentativo di farle incontrare."
+  }
+}

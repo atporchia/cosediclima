@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { personas, getPersonaBySlug } from "@/data/personas";
+import { getTranslations } from "next-intl/server";
+import { personas, getPersonaBySlugForLocale } from "@/data/personas";
+import type { Locale } from "@/i18n/routing";
 import PersonaStrategyCard from "@/components/PersonaStrategyCard";
 
 export function generateStaticParams() {
@@ -10,23 +12,24 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const persona = getPersonaBySlug(slug);
+  const { locale, slug } = await params;
+  const persona = getPersonaBySlugForLocale(slug, locale as Locale);
   if (!persona) return {};
 
-  const title = `Come convincere: ${persona.name} | CoseDiClima`;
+  const t = await getTranslations({ locale, namespace: "PersonaStrategyPage" });
+  const title = `${t("titlePrefix")}${persona.name} | CoseDiClima`;
   return { title, description: persona.description };
 }
 
 export default async function PersonaStrategyPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const persona = getPersonaBySlug(slug);
+  const { locale, slug } = await params;
+  const persona = getPersonaBySlugForLocale(slug, locale as Locale);
 
   if (!persona) {
     notFound();

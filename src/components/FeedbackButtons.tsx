@@ -1,19 +1,11 @@
 "use client";
 
 import { useState } from "react";
-
-const OPTIONS = [
-  "Sì",
-  "No",
-  "Troppo lunga",
-  "Troppo aggressiva",
-  "Troppo debole",
-  "Voglio più dati",
-  "Voglio una versione più dura",
-  "Voglio una versione più calma",
-];
+import { useTranslations } from "next-intl";
 
 export default function FeedbackButtons({ claimId }: { claimId: string }) {
+  const t = useTranslations("FeedbackButtons");
+  const options = t.raw("options") as string[];
   const [selected, setSelected] = useState<string | null>(null);
 
   function handleClick(option: string) {
@@ -24,9 +16,9 @@ export default function FeedbackButtons({ claimId }: { claimId: string }) {
 
   return (
     <div>
-      <p className="text-sm font-semibold text-foreground/80">Questa risposta ti aiuta a rispondere?</p>
+      <p className="text-sm font-semibold text-foreground/80">{t("question")}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        {OPTIONS.map((option) => (
+        {options.map((option) => (
           <button
             key={option}
             type="button"
@@ -42,7 +34,7 @@ export default function FeedbackButtons({ claimId }: { claimId: string }) {
         ))}
       </div>
       {selected && (
-        <p className="mt-2 text-xs text-foreground/50">Grazie per il feedback: &ldquo;{selected}&rdquo;.</p>
+        <p className="mt-2 text-xs text-foreground/50">{t("thanks", { option: selected })}</p>
       )}
     </div>
   );

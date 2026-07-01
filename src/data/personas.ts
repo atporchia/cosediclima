@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/routing";
+import { personas as personasEn } from "./en/personas";
+
 export interface Persona {
   id: string;
   slug: string;
@@ -351,4 +354,12 @@ export const personas: Persona[] = [
 
 export function getPersonaBySlug(slug: string): Persona | undefined {
   return personas.find((persona) => persona.slug === slug);
+}
+
+export function getPersonas(locale: Locale): Persona[] {
+  return locale === "en" ? personasEn : personas;
+}
+
+export function getPersonaBySlugForLocale(slug: string, locale: Locale): Persona | undefined {
+  return getPersonas(locale).find((persona) => persona.slug === slug);
 }

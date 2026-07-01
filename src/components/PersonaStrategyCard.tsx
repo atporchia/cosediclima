@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
 import type { Persona } from "@/data/personas";
 import CopyButton from "./CopyButton";
 
 export default function PersonaStrategyCard({ persona }: { persona: Persona }) {
+  const t = useTranslations("PersonaStrategyCard");
+
   return (
     <div className="space-y-8">
       <div>
@@ -11,23 +14,23 @@ export default function PersonaStrategyCard({ persona }: { persona: Persona }) {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">Paura di fondo</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{t("coreFearLabel")}</p>
           <p className="mt-2 text-sm text-foreground/85">{persona.coreFear}</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">Difesa identitaria</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{t("identityDefenseLabel")}</p>
           <p className="mt-2 text-sm italic text-foreground/85">&ldquo;{persona.identityDefense}&rdquo;</p>
         </div>
       </div>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">Strategia di persuasione</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">{t("persuasionStrategyLabel")}</h2>
         <p className="mt-2 text-foreground/85">{persona.persuasionStrategy}</p>
       </section>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <section>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-red-300/80">Da evitare</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-red-300/80">{t("avoidLabel")}</h2>
           <ul className="mt-2 space-y-1.5">
             {persona.avoidSaying.map((line) => (
               <li key={line} className="text-sm text-foreground/70">
@@ -37,7 +40,7 @@ export default function PersonaStrategyCard({ persona }: { persona: Persona }) {
           </ul>
         </section>
         <section>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-accent">Da dire invece</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-accent">{t("sayInsteadLabel")}</h2>
           <ul className="mt-2 space-y-1.5">
             {persona.sayInstead.map((line) => (
               <li key={line} className="text-sm text-foreground/85">
@@ -49,7 +52,7 @@ export default function PersonaStrategyCard({ persona }: { persona: Persona }) {
       </div>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">Frame migliori</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">{t("bestFramesLabel")}</h2>
         <div className="mt-2 flex flex-wrap gap-2">
           {persona.bestFrames.map((frame) => (
             <span
@@ -63,13 +66,13 @@ export default function PersonaStrategyCard({ persona }: { persona: Persona }) {
       </section>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">Risposte di esempio</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground/50">{t("exampleRepliesLabel")}</h2>
         <div className="mt-3 space-y-3">
           {(
             [
-              ["Gentile", persona.exampleReplies.gentle],
-              ["Diretta", persona.exampleReplies.direct],
-              ["Tagliente", persona.exampleReplies.sharp],
+              [t("gentle"), persona.exampleReplies.gentle],
+              [t("direct"), persona.exampleReplies.direct],
+              [t("sharp"), persona.exampleReplies.sharp],
             ] as const
           ).map(([label, text]) => (
             <div key={label} className="rounded-xl border border-white/10 bg-white/5 p-4">

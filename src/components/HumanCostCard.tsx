@@ -1,20 +1,14 @@
+import { useTranslations } from "next-intl";
 import type { HumanCostCard as HumanCostCardData } from "@/data/humanCostCards";
 import SourceList from "./SourceList";
 
-const EVENT_LABELS: Record<HumanCostCardData["eventType"], string> = {
-  heat: "Caldo estremo",
-  flood: "Alluvione",
-  fire: "Incendio",
-  drought: "Siccità",
-  storm: "Tempesta",
-  mixed: "Evento composito",
-};
-
 export default function HumanCostCard({ card }: { card: HumanCostCardData }) {
+  const t = useTranslations("HumanCostCard");
+
   return (
     <div className="rounded-xl border border-white/10 bg-white/5 p-5">
       <div className="flex flex-wrap items-center gap-2 text-xs text-foreground/60">
-        <span className="rounded-full border border-white/15 px-2.5 py-1">{EVENT_LABELS[card.eventType]}</span>
+        <span className="rounded-full border border-white/15 px-2.5 py-1">{t(card.eventType)}</span>
         <span>{card.region}</span>
         <span>·</span>
         <span>{card.year}</span>

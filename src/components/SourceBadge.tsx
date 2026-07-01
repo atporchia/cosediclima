@@ -1,7 +1,10 @@
-import { getSourceById } from "@/data/sources";
+import { useLocale } from "next-intl";
+import { getSourceByIdForLocale } from "@/data/sources";
+import type { Locale } from "@/i18n/routing";
 
 export default function SourceBadge({ sourceId }: { sourceId: string }) {
-  const source = getSourceById(sourceId);
+  const locale = useLocale() as Locale;
+  const source = getSourceByIdForLocale(sourceId, locale);
   if (!source) return null;
 
   const content = (

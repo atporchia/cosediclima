@@ -1,10 +1,14 @@
-import Link from "next/link";
-import { personas } from "@/data/personas";
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { getPersonas } from "@/data/personas";
+import type { Locale } from "@/i18n/routing";
 
 export default function PersonaSelector() {
+  const locale = useLocale() as Locale;
+
   return (
     <div className="grid gap-4 sm:grid-cols-2">
-      {personas.map((persona) => (
+      {getPersonas(locale).map((persona) => (
         <Link
           key={persona.slug}
           href={`/persona/${persona.slug}`}

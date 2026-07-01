@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/routing";
+import { claims as claimsEn } from "./en/claims";
+
 export type ClaimVerdict =
   | "falso"
   | "fuorviante"
@@ -778,4 +781,12 @@ export const claims: ClimateClaim[] = [
 
 export function getClaimBySlug(slug: string): ClimateClaim | undefined {
   return claims.find((claim) => claim.slug === slug);
+}
+
+export function getClaims(locale: Locale): ClimateClaim[] {
+  return locale === "en" ? claimsEn : claims;
+}
+
+export function getClaimBySlugForLocale(slug: string, locale: Locale): ClimateClaim | undefined {
+  return getClaims(locale).find((claim) => claim.slug === slug);
 }

@@ -1,14 +1,5 @@
+import { useTranslations } from "next-intl";
 import type { ClaimVerdict } from "@/data/claims";
-
-const VERDICT_LABELS: Record<ClaimVerdict, string> = {
-  falso: "Falso",
-  fuorviante: "Fuorviante",
-  parzialmente_vero: "Parzialmente vero",
-  ritardo: "Argomento di ritardo",
-  doomismo: "Doomismo",
-  complotto: "Complotto senza prove",
-  falsa_equivalenza: "Falsa equivalenza",
-};
 
 const VERDICT_STYLES: Record<ClaimVerdict, string> = {
   falso: "bg-red-500/15 text-red-300 border-red-500/40",
@@ -21,11 +12,13 @@ const VERDICT_STYLES: Record<ClaimVerdict, string> = {
 };
 
 export default function VerdictBadge({ verdict }: { verdict: ClaimVerdict }) {
+  const t = useTranslations("VerdictBadge");
+
   return (
     <span
       className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${VERDICT_STYLES[verdict]}`}
     >
-      {VERDICT_LABELS[verdict]}
+      {t(verdict)}
     </span>
   );
 }

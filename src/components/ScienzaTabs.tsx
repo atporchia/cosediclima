@@ -1,15 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { ScienceHighlight, IndustryInfluenceCase } from "@/data/scienceWatch";
 import SourceList from "./SourceList";
 
 type TabId = "consenso" | "conflitti";
-
-const TABS: { id: TabId; label: string }[] = [
-  { id: "consenso", label: "Il consenso scientifico" },
-  { id: "conflitti", label: "Chi ha pagato per farti dubitare" },
-];
 
 export default function ScienzaTabs({
   highlights,
@@ -18,14 +14,20 @@ export default function ScienzaTabs({
   highlights: ScienceHighlight[];
   cases: IndustryInfluenceCase[];
 }) {
+  const t = useTranslations("ScienzaTabs");
   const [activeTab, setActiveTab] = useState<TabId>("consenso");
+
+  const TABS: { id: TabId; label: string }[] = [
+    { id: "consenso", label: t("tabConsenso") },
+    { id: "conflitti", label: t("tabConflitti") },
+  ];
 
   const sortedHighlights = [...highlights].sort((a, b) => Number(b.year) - Number(a.year));
   const sortedCases = [...cases].sort((a, b) => Number(b.year) - Number(a.year));
 
   return (
     <div>
-      <div role="tablist" aria-label="Sezioni scienza" className="flex flex-wrap gap-2 border-b border-white/10">
+      <div role="tablist" aria-label={t("ariaLabel")} className="flex flex-wrap gap-2 border-b border-white/10">
         {TABS.map((tab) => (
           <button
             key={tab.id}
@@ -75,11 +77,7 @@ export default function ScienzaTabs({
         hidden={activeTab !== "conflitti"}
         className="mt-6"
       >
-        <p className="text-sm text-foreground/70">
-          Ogni caso qui sotto è documentato da inchieste giornalistiche, studi peer-reviewed o
-          ricerche di trasparenza sui finanziamenti — non da sospetti generici. Alcuni dei
-          soggetti citati hanno pubblicamente contestato le conclusioni riportate.
-        </p>
+        <p className="text-sm text-foreground/70">{t("conflictsIntro")}</p>
         <div className="mt-4 space-y-4">
           {sortedCases.map((item) => (
             <div key={item.id} className="rounded-xl border border-white/10 bg-white/5 p-5">
@@ -91,11 +89,11 @@ export default function ScienzaTabs({
               <p className="mt-2 font-semibold">{item.title}</p>
               <p className="mt-2 text-sm text-foreground/85">{item.whatHappened}</p>
               <p className="mt-2 text-sm text-foreground/70">
-                <span className="font-semibold text-foreground/85">Conflitto di interesse: </span>
+                <span className="font-semibold text-foreground/85">{t("conflictOfInterestLabel")}</span>
                 {item.conflictOfInterest}
               </p>
               <p className="mt-2 text-sm text-foreground/70">
-                <span className="font-semibold text-foreground/85">Cosa mostrano le prove: </span>
+                <span className="font-semibold text-foreground/85">{t("evidenceLabel")}</span>
                 {item.whatEvidenceShows}
               </p>
               <div className="mt-3">

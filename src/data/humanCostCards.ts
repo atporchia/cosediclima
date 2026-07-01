@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/routing";
+import { humanCostCards as humanCostCardsEn } from "./en/humanCostCards";
+
 export type HumanCostEventType = "heat" | "flood" | "fire" | "drought" | "storm" | "mixed";
 
 export interface HumanCostCard {
@@ -238,4 +241,8 @@ export const humanCostCards: HumanCostCard[] = [
 
 export function getHumanCostCardBySlug(slug: string): HumanCostCard | undefined {
   return humanCostCards.find((card) => card.slug === slug);
+}
+
+export function getHumanCostCards(locale: Locale): HumanCostCard[] {
+  return locale === "en" ? humanCostCardsEn : humanCostCards;
 }

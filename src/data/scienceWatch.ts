@@ -1,3 +1,9 @@
+import type { Locale } from "@/i18n/routing";
+import {
+  scienceHighlights as scienceHighlightsEn,
+  industryInfluenceCases as industryInfluenceCasesEn,
+} from "./en/scienceWatch";
+
 export interface ScienceHighlight {
   id: string;
   slug: string;
@@ -153,4 +159,12 @@ export function getScienceHighlightBySlug(slug: string): ScienceHighlight | unde
 
 export function getIndustryInfluenceCaseBySlug(slug: string): IndustryInfluenceCase | undefined {
   return industryInfluenceCases.find((item) => item.slug === slug);
+}
+
+export function getScienceHighlights(locale: Locale): ScienceHighlight[] {
+  return locale === "en" ? scienceHighlightsEn : scienceHighlights;
+}
+
+export function getIndustryInfluenceCases(locale: Locale): IndustryInfluenceCase[] {
+  return locale === "en" ? industryInfluenceCasesEn : industryInfluenceCases;
 }

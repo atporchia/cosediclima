@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/routing";
+import { costCards as costCardsEn } from "./en/costCards";
+
 export type CostType =
   | "health"
   | "home"
@@ -128,4 +131,8 @@ export const costCards: CostCard[] = [
 
 export function getCostCardBySlug(slug: string): CostCard | undefined {
   return costCards.find((card) => card.slug === slug);
+}
+
+export function getCostCards(locale: Locale): CostCard[] {
+  return locale === "en" ? costCardsEn : costCards;
 }

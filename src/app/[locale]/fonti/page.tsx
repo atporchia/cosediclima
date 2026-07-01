@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import { sources } from "@/data/sources";
+import { getTranslations } from "next-intl/server";
+import { useTranslations, useLocale } from "next-intl";
+import { getSources } from "@/data/sources";
+import type { Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Fonti | CoseDiClima",
-  description:
-    "Le fonti scientifiche, istituzionali e giornalistiche usate da CoseDiClima per verificare ogni affermazione: nessun blog, nessuna pagina attivista non verificata.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "FontiPage" });
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
 export default function FontiPage() {
+  const t = useTranslations("FontiPage");
+  const locale = useLocale() as Locale;
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold sm:text-3xl">Fonti</h1>
-      <p className="mt-3 text-foreground/70">
-        Ogni affermazione fattuale su CoseDiClima è collegata ad almeno una di queste fonti. Non
-        usiamo blog, pagine attiviste non verificate o contenuti politici come fonti fattuali.
-      </p>
+      <h1 className="text-2xl font-bold sm:text-3xl">{t("title")}</h1>
+      <p className="mt-3 text-foreground/70">{t("body")}</p>
       <div className="mt-8 space-y-4">
-        {sources.map((source) => (
+        {getSources(locale).map((source) => (
           <div key={source.id} className="rounded-xl border border-white/10 bg-white/5 p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -30,13 +37,13 @@ export default function FontiPage() {
                   rel="noopener noreferrer"
                   className="text-xs font-semibold text-accent-science hover:underline"
                 >
-                  Sito ufficiale ↗
+                  {t("officialSite")}
                 </a>
               )}
             </div>
             <p className="mt-3 text-sm text-foreground/80">{source.credibilityNote}</p>
             <p className="mt-2 text-sm text-foreground/60">
-              <span className="font-semibold text-foreground/75">Usata per: </span>
+              <span className="font-semibold text-foreground/75">{t("usedFor")}</span>
               {source.keyUse}
             </p>
           </div>

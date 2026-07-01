@@ -1,11 +1,12 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import ClaimInput from "@/components/ClaimInput";
 
 const EXAMPLE_CLAIMS = [
-  { slug: "il-clima-e-sempre-cambiato", text: "Il clima è sempre cambiato." },
-  { slug: "e-allora-la-cina", text: "E allora la Cina?" },
-  { slug: "e-tutta-una-truffa-delle-elite", text: "È tutta una truffa delle élite." },
-];
+  { slug: "il-clima-e-sempre-cambiato", key: "sempreCambiato" },
+  { slug: "e-allora-la-cina", key: "allallCina" },
+  { slug: "e-tutta-una-truffa-delle-elite", key: "eliteScam" },
+] as const;
 
 const SOURCE_STRIP = [
   "IPCC",
@@ -20,18 +21,19 @@ const SOURCE_STRIP = [
 ];
 
 export default function Home() {
+  const t = useTranslations("HomePage");
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
       {/* Hero */}
       <section className="text-center">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-          Il clima non è un&apos;opinione.
+          {t("heroTitle")}
           <br />
-          <span className="text-accent">Controlla prima di condividere.</span>
+          <span className="text-accent">{t("heroSubtitle")}</span>
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg">
-          CoseDiClima ti aiuta a smontare bufale climatiche, negazionismo e ritardi con
-          risposte brevi, dati solidi e fonti affidabili.
+          {t("heroDescription")}
         </p>
 
         <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-white/10 bg-white/5 p-4 text-left sm:p-6">
@@ -41,7 +43,7 @@ export default function Home() {
               href="/chi-paga-il-conto"
               className="inline-flex items-center justify-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/40"
             >
-              Vedi chi paga il conto
+              {t("seeWhoPays")}
             </Link>
           </div>
         </div>
@@ -50,7 +52,7 @@ export default function Home() {
       {/* Example claims */}
       <section className="mt-14">
         <h2 className="text-center text-sm font-semibold uppercase tracking-wide text-foreground/50">
-          Prova con una frase che hai sentito
+          {t("tryAClaim")}
         </h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           {EXAMPLE_CLAIMS.map((claim) => (
@@ -59,7 +61,7 @@ export default function Home() {
               href={`/claim/${claim.slug}`}
               className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm font-medium transition-colors hover:border-accent/60 hover:bg-white/10"
             >
-              &ldquo;{claim.text}&rdquo;
+              &ldquo;{t(`exampleClaims.${claim.key}`)}&rdquo;
             </Link>
           ))}
         </div>
@@ -67,159 +69,128 @@ export default function Home() {
 
       {/* Why this exists */}
       <section className="mt-16 border-t border-white/10 pt-12">
-        <h2 className="text-2xl font-bold sm:text-3xl">
-          Persone muoiono mentre discutiamo se il problema esiste.
-        </h2>
-        <p className="mt-4 max-w-3xl text-foreground/80">
-          Ogni volta che una discussione climatica finisce in &ldquo;è sempre successo&rdquo;,
-          &ldquo;e allora la Cina&rdquo;, &ldquo;sono tutte élite&rdquo;, il risultato è lo
-          stesso: meno azione, più ritardo, più costi per chi non può scappare.
-        </p>
+        <h2 className="text-2xl font-bold sm:text-3xl">{t("whyExistsTitle")}</h2>
+        <p className="mt-4 max-w-3xl text-foreground/80">{t("whyExistsBody")}</p>
       </section>
 
       {/* Not a left/right issue */}
       <section className="mt-16 border-t border-white/10 pt-12">
-        <h2 className="text-2xl font-bold sm:text-3xl">Non è una questione di destra o sinistra.</h2>
+        <h2 className="text-2xl font-bold sm:text-3xl">{t("notLeftRightTitle")}</h2>
         <div className="mt-4 max-w-3xl space-y-4 text-foreground/80">
+          <p>{t("notLeftRightP1")}</p>
           <p>
-            Chi nega il problema spesso lo dipinge come un&apos;ossessione della sinistra. Ma i
-            dati non hanno un colore politico — e nemmeno i ritardi.
-          </p>
-          <p>
-            In Italia, il{" "}
+            {t("notLeftRightP2Pre")}{" "}
             <a
               href="https://www.greenreport.it/news/nuove-energie/61975-rinnovabili-a-fine-marzo-2026-litalia-ha-raggiunto-appena-il-33-2-dellobiettivo-complessivo-2030"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
             >
-              governo Meloni ha rallentato le autorizzazioni per nuovi impianti rinnovabili in
-              Sardegna
+              {t("notLeftRightP2Link1")}
             </a>
-            , e{" "}
+            {t("notLeftRightP2Mid")}{" "}
             <a
               href="https://www.agendadigitale.eu/smart-city/litalia-e-in-linea-sugli-obiettivi-climatici-i-numeri-raccontano-altro/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
             >
-              ha votato contro o si è astenuto su misure UE
+              {t("notLeftRightP2Link2")}
             </a>{" "}
-            come lo stop ai motori endotermici dal 2035, la Nature Restoration Law e il
-            regolamento Euro 7: a marzo 2026 l&apos;Italia aveva raggiunto solo il 33% del
-            proprio obiettivo rinnovabili 2030.
+            {t("notLeftRightP2Post")}
           </p>
           <p>
-            Ma i governi di centrosinistra, in Italia e altrove, non hanno fatto meglio quando
-            erano al potere. A livello globale,{" "}
+            {t("notLeftRightP3Pre")}{" "}
             <a
               href="https://www.wri.org/insights/assessing-2025-ndcs"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
             >
-              il 95% dei paesi ha un piano climatico sulla carta
+              {t("notLeftRightP3Link")}
             </a>{" "}
-            — governato da destra, sinistra o centro non fa differenza — ma le politiche oggi in
-            vigore porterebbero a una riduzione delle emissioni di appena il 2% entro il 2030,
-            contro il 43% necessario per restare sotto gli 1,5°C.
+            {t("notLeftRightP3Post")}
           </p>
           <p>
-            Le soluzioni esistono, e in alcuni casi hanno funzionato:{" "}
+            {t("notLeftRightP4Pre")}{" "}
             <a
               href="https://www.science.org/doi/10.1126/science.adl6547"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
             >
-              uno studio pubblicato su Science
+              {t("notLeftRightP4Link")}
             </a>{" "}
-            ha analizzato 1.500 politiche climatiche attuate in due decenni e ne ha trovate 63
-            che hanno prodotto riduzioni reali delle emissioni. Il problema non è la mancanza di
-            soluzioni. È che nessuno schieramento le ha applicate abbastanza.
+            {t("notLeftRightP4Post")}
           </p>
         </div>
       </section>
 
       {/* What CoseDiClima does */}
       <section className="mt-16">
-        <h2 className="text-2xl font-bold sm:text-3xl">
-          CoseDiClima non ti dà un trattato. Ti dà una risposta.
-        </h2>
-        <p className="mt-4 max-w-3xl text-foreground/80">Per ogni frase trovi:</p>
+        <h2 className="text-2xl font-bold sm:text-3xl">{t("whatItDoesTitle")}</h2>
+        <p className="mt-4 max-w-3xl text-foreground/80">{t("whatItDoesIntro")}</p>
         <ul className="mt-3 max-w-3xl list-inside list-disc space-y-1 text-foreground/80">
-          <li>cosa c&apos;è di falso o fuorviante;</li>
-          <li>quale tecnica retorica usa;</li>
-          <li>una risposta breve da copiare;</li>
-          <li>una spiegazione più completa;</li>
-          <li>fonti scientifiche affidabili.</li>
+          <li>{t("whatItDoesLi1")}</li>
+          <li>{t("whatItDoesLi2")}</li>
+          <li>{t("whatItDoesLi3")}</li>
+          <li>{t("whatItDoesLi4")}</li>
+          <li>{t("whatItDoesLi5")}</li>
         </ul>
       </section>
 
       {/* Tecniche teaser */}
       <section className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <h2 className="text-xl font-bold sm:text-2xl">Le tecniche retoriche più comuni nel dibattito climatico.</h2>
-        <p className="mt-3 max-w-2xl text-foreground/80">
-          Cherry-picking, falso equilibrio, benaltrismo, doomismo: impara a riconoscerle prima
-          di cadere nella discussione sbagliata.
-        </p>
+        <h2 className="text-xl font-bold sm:text-2xl">{t("tecnicheTeaserTitle")}</h2>
+        <p className="mt-3 max-w-2xl text-foreground/80">{t("tecnicheTeaserBody")}</p>
         <Link
           href="/tecniche"
           className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
         >
-          Vedi la libreria delle tecniche →
+          {t("tecnicheTeaserCta")}
         </Link>
       </section>
 
       {/* Scienza teaser */}
       <section className="mt-6 rounded-2xl border border-accent-science/30 bg-accent-science/10 p-6 sm:p-8">
-        <h2 className="text-xl font-bold sm:text-2xl">Cosa ne pensa la scienza.</h2>
-        <p className="mt-3 max-w-2xl text-foreground/80">
-          Non solo studi e consenso scientifico: anche chi ha pagato per farti dubitare, e
-          come lo ha fatto.
-        </p>
+        <h2 className="text-xl font-bold sm:text-2xl">{t("scienzaTeaserTitle")}</h2>
+        <p className="mt-3 max-w-2xl text-foreground/80">{t("scienzaTeaserBody")}</p>
         <Link
           href="/scienza"
           className="mt-4 inline-block text-sm font-semibold text-accent-science hover:underline"
         >
-          Guarda le fonti e i conflitti di interesse →
+          {t("scienzaTeaserCta")}
         </Link>
       </section>
 
       {/* Morti evitabili */}
       <section className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <h2 className="text-xl font-bold sm:text-2xl">Morti evitabili.</h2>
-        <p className="mt-3 max-w-2xl text-foreground/80">
-          Il cambiamento climatico non uccide solo in futuro. Uccide adesso, soprattutto con il
-          caldo estremo.
-        </p>
+        <h2 className="text-xl font-bold sm:text-2xl">{t("mortiTeaserTitle")}</h2>
+        <p className="mt-3 max-w-2xl text-foreground/80">{t("mortiTeaserBody")}</p>
         <Link
           href="/morti-evitabili"
           className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
         >
-          Vedi il costo umano →
+          {t("mortiTeaserCta")}
         </Link>
       </section>
 
       {/* Chi paga il conto */}
       <section className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <h2 className="text-xl font-bold sm:text-2xl">Chi paga il conto?</h2>
-        <p className="mt-3 max-w-2xl text-foreground/80">
-          Il negazionismo climatico non costa zero. Costa a chi non può scappare, assicurarsi o
-          climatizzare la propria vita.
-        </p>
+        <h2 className="text-xl font-bold sm:text-2xl">{t("costoTeaserTitle")}</h2>
+        <p className="mt-3 max-w-2xl text-foreground/80">{t("costoTeaserBody")}</p>
         <Link
           href="/chi-paga-il-conto"
           className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
         >
-          Vedi chi paga →
+          {t("costoTeaserCta")}
         </Link>
       </section>
 
       {/* Source credibility strip */}
       <section className="mt-16 border-t border-white/10 pt-8">
         <p className="text-center text-xs uppercase tracking-wide text-foreground/40">
-          Dati e fonti da
+          {t("sourcesStripLabel")}
         </p>
         <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-foreground/60">
           {SOURCE_STRIP.map((name) => (
@@ -230,14 +201,12 @@ export default function Home() {
 
       {/* Final CTA */}
       <section className="mt-16 text-center">
-        <h2 className="text-2xl font-extrabold sm:text-3xl">
-          Il clima non è un&apos;opinione. Controlla prima di condividere.
-        </h2>
+        <h2 className="text-2xl font-extrabold sm:text-3xl">{t("finalCtaTitle")}</h2>
         <Link
           href="/check"
           className="mt-6 inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-accent-strong hover:text-white"
         >
-          Fai un Clima Check
+          {t("finalCtaButton")}
         </Link>
       </section>
     </div>

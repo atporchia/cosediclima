@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/routing";
+import { sources as sourcesEn } from "./en/sources";
+
 export type SourceType =
   | "scientific_report"
   | "government"
@@ -166,4 +169,12 @@ export const sources: Source[] = [
 
 export function getSourceById(id: string): Source | undefined {
   return sources.find((source) => source.id === id);
+}
+
+export function getSources(locale: Locale): Source[] {
+  return locale === "en" ? sourcesEn : sources;
+}
+
+export function getSourceByIdForLocale(id: string, locale: Locale): Source | undefined {
+  return getSources(locale).find((source) => source.id === id);
 }

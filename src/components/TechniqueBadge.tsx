@@ -1,9 +1,12 @@
-import Link from "next/link";
-import { getTechniqueById } from "@/data/techniques";
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { getTechniqueByIdForLocale } from "@/data/techniques";
 import type { ManipulationTechnique } from "@/data/claims";
+import type { Locale } from "@/i18n/routing";
 
 export default function TechniqueBadge({ technique }: { technique: ManipulationTechnique }) {
-  const data = getTechniqueById(technique);
+  const locale = useLocale() as Locale;
+  const data = getTechniqueByIdForLocale(technique, locale);
   if (!data) return null;
 
   return (
