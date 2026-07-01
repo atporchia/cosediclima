@@ -12,7 +12,7 @@ const NAV_LINKS = [
 export default function Header() {
   return (
     <header className="border-b border-white/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-8 gap-y-3 px-4 py-3">
         <Link href="/" className="text-lg font-bold tracking-tight">
           Cose<span className="text-accent">Di</span>Clima
         </Link>
