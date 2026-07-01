@@ -13,6 +13,7 @@ export interface IndustryInfluenceCase {
   slug: string;
   title: string;
   actor: string;
+  year: string;
   whatHappened: string;
   conflictOfInterest: string;
   whatEvidenceShows: string;
@@ -21,6 +22,26 @@ export interface IndustryInfluenceCase {
 }
 
 export const scienceHighlights: ScienceHighlight[] = [
+  {
+    id: "wwa-2026-european-heatwave",
+    slug: "wwa-2026-ondata-di-caldo-europea",
+    title: "L'ondata di caldo europea di giugno 2026 è la più grave mai registrata",
+    organization: "World Weather Attribution",
+    year: "2026",
+    summary:
+      "Un'analisi di attribuzione rapida pubblicata il 26 giugno 2026 descrive l'ondata di caldo europea come la più grave mai registrata nella regione, definendo le emissioni di combustibili fossili «direttamente responsabili» di quanto sta accadendo: temperature di questa entità sarebbero state «virtualmente impossibili» nel clima del 1976.",
+    sourceIds: ["world-weather-attribution"],
+  },
+  {
+    id: "who-europe-2026-dress-rehearsal",
+    slug: "oms-europa-2026-prova-generale",
+    title: "L'OMS Europa: «questa ondata di caldo è una prova generale» per le estati future",
+    organization: "OMS — Ufficio Regionale per l'Europa",
+    year: "2026",
+    summary:
+      "In una dichiarazione del 30 giugno 2026, l'OMS Europa ha collegato l'ondata di caldo in corso a oltre 1.300 morti in eccesso in diversi paesi europei, ricordando che i piani di azione contro il caldo hanno già ridotto la mortalità e che più della metà dei paesi della regione europea non ne ha ancora uno completo.",
+    sourceIds: ["who-climate-health"],
+  },
   {
     id: "ipcc-ar6-synthesis",
     slug: "ipcc-ar6-synthesis-report",
@@ -69,6 +90,7 @@ export const industryInfluenceCases: IndustryInfluenceCase[] = [
     slug: "exxonmobil-ricerca-interna-vs-comunicazione-pubblica",
     title: "ExxonMobil: cosa sapeva internamente e cosa comunicava pubblicamente",
     actor: "ExxonMobil",
+    year: "2017",
     whatHappened:
       "Documenti interni e ricerche svolte a partire dagli anni '70 mostrano che gli scienziati impiegati dall'allora Exxon avevano prodotto stime del riscaldamento globale futuro sorprendentemente vicine a quelle poi confermate dai dati osservati negli anni successivi.",
     conflictOfInterest:
@@ -83,12 +105,13 @@ export const industryInfluenceCases: IndustryInfluenceCase[] = [
     slug: "heartland-institute-finanziamenti-combustibili-fossili",
     title: "Heartland Institute: chi ha finanziato le campagne di dubbio climatico",
     actor: "Heartland Institute",
+    year: "2012",
     whatHappened:
       "Un think tank statunitense che ha organizzato per anni conferenze e pubblicazioni volte a mettere in dubbio il consenso scientifico sul cambiamento climatico, presentandosi come fonte di ricerca indipendente.",
     conflictOfInterest:
       "Ricerche di trasparenza sui finanziamenti hanno documentato legami finanziari tra l'organizzazione e aziende con interessi nei combustibili fossili, un pattern di finanziamento del dubbio scientifico documentato anche in altri settori, come quello del tabacco.",
     whatEvidenceShows:
-      "Organizzazioni indipendenti di ricerca sulla trasparenza dei finanziamenti hanno raccolto e pubblicato documentazione su questi legami, in parte contestata nei dettagli dalla stessa organizzazione.",
+      "Nel febbraio 2012 un ricercatore, che ha poi ammesso pubblicamente il proprio ruolo, ha ottenuto e diffuso documenti interni dell'organizzazione tra giornalisti e osservatori, inclusi piani di finanziamento per contrastare l'insegnamento della scienza del clima nelle scuole. Organizzazioni indipendenti di ricerca sulla trasparenza dei finanziamenti hanno successivamente raccolto e pubblicato ulteriore documentazione su questi legami, in parte contestata nei dettagli dalla stessa organizzazione.",
     sourceIds: ["desmog", "climate-investigations-center", "ucs-climate-deception-dossiers"],
     tags: ["think-tank", "conflitto-di-interesse", "finanziamenti"],
   },
@@ -97,6 +120,7 @@ export const industryInfluenceCases: IndustryInfluenceCase[] = [
     slug: "willie-soon-finanziamenti-non-dichiarati",
     title: "Il caso Willie Soon: finanziamenti non dichiarati dietro ricerche scettiche",
     actor: "Willie Soon (Harvard-Smithsonian Center for Astrophysics)",
+    year: "2015",
     whatHappened:
       "Un astrofisico che ha pubblicato per anni articoli e testimonianze pubbliche scettiche sul ruolo umano nel riscaldamento globale, attribuendolo prevalentemente a variazioni dell'attività solare.",
     conflictOfInterest:
@@ -111,8 +135,9 @@ export const industryInfluenceCases: IndustryInfluenceCase[] = [
     slug: "global-climate-coalition-lobbying-anni-90",
     title: "Global Climate Coalition: la lobby industriale degli anni '90",
     actor: "Global Climate Coalition",
+    year: "2002",
     whatHappened:
-      "Una coalizione di aziende e associazioni industriali, attiva soprattutto negli anni '90, che ha condotto campagne di lobbying e comunicazione per contrastare le politiche internazionali di riduzione delle emissioni.",
+      "Una coalizione di aziende e associazioni industriali, attiva dal 1989 al suo scioglimento nel 2002, che ha condotto campagne di lobbying e comunicazione per contrastare le politiche internazionali di riduzione delle emissioni, incluso il Protocollo di Kyoto.",
     conflictOfInterest:
       "La coalizione era finanziata principalmente da aziende dei settori automobilistico, petrolifero e del carbone, con un interesse economico diretto nel ritardare le politiche climatiche.",
     whatEvidenceShows:

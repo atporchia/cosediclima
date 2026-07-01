@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function MortiEvitabiliPage() {
+  const sortedCards = [...humanCostCards].sort((a, b) => Number(b.year) - Number(a.year));
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-bold sm:text-3xl">
@@ -21,7 +23,7 @@ export default function MortiEvitabiliPage() {
         dannoso.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {humanCostCards.map((card) => (
+        {sortedCards.map((card) => (
           <HumanCostCard key={card.id} card={card} />
         ))}
       </div>

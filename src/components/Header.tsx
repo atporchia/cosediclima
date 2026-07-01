@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { href: "/check", label: "Clima Check" },
-  { href: "/tecniche", label: "Manipolazione" },
+  { href: "/tecniche", label: "Argomenti ricorrenti" },
   { href: "/scienza", label: "Cosa ne pensa la scienza" },
   { href: "/morti-evitabili", label: "Morti evitabili" },
   { href: "/chi-paga-il-conto", label: "Chi paga il conto" },
   { href: "/fonti", label: "Fonti" },
-  { href: "/about", label: "Chi sono" },
+  { href: "/about", label: "Il Progetto" },
 ];
 
 export default function Header() {

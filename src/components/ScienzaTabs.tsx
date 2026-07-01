@@ -20,6 +20,9 @@ export default function ScienzaTabs({
 }) {
   const [activeTab, setActiveTab] = useState<TabId>("consenso");
 
+  const sortedHighlights = [...highlights].sort((a, b) => Number(b.year) - Number(a.year));
+  const sortedCases = [...cases].sort((a, b) => Number(b.year) - Number(a.year));
+
   return (
     <div>
       <div role="tablist" aria-label="Sezioni scienza" className="flex flex-wrap gap-2 border-b border-white/10">
@@ -49,7 +52,7 @@ export default function ScienzaTabs({
         hidden={activeTab !== "consenso"}
         className="mt-6 space-y-4"
       >
-        {highlights.map((item) => (
+        {sortedHighlights.map((item) => (
           <div key={item.id} className="rounded-xl border border-accent-science/30 bg-accent-science/5 p-5">
             <div className="flex flex-wrap items-center gap-2 text-xs text-foreground/60">
               <span>{item.organization}</span>
@@ -78,9 +81,13 @@ export default function ScienzaTabs({
           soggetti citati hanno pubblicamente contestato le conclusioni riportate.
         </p>
         <div className="mt-4 space-y-4">
-          {cases.map((item) => (
+          {sortedCases.map((item) => (
             <div key={item.id} className="rounded-xl border border-white/10 bg-white/5 p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{item.actor}</p>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-foreground/50">
+                <span className="font-semibold uppercase tracking-wide">{item.actor}</span>
+                <span>·</span>
+                <span>{item.year}</span>
+              </div>
               <p className="mt-2 font-semibold">{item.title}</p>
               <p className="mt-2 text-sm text-foreground/85">{item.whatHappened}</p>
               <p className="mt-2 text-sm text-foreground/70">

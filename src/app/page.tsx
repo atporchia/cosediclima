@@ -77,6 +77,70 @@ export default function Home() {
         </p>
       </section>
 
+      {/* Not a left/right issue */}
+      <section className="mt-16 border-t border-white/10 pt-12">
+        <h2 className="text-2xl font-bold sm:text-3xl">Non è una questione di destra o sinistra.</h2>
+        <div className="mt-4 max-w-3xl space-y-4 text-foreground/80">
+          <p>
+            Chi nega il problema spesso lo dipinge come un&apos;ossessione della sinistra. Ma i
+            dati non hanno un colore politico — e nemmeno i ritardi.
+          </p>
+          <p>
+            In Italia, il{" "}
+            <a
+              href="https://www.greenreport.it/news/nuove-energie/61975-rinnovabili-a-fine-marzo-2026-litalia-ha-raggiunto-appena-il-33-2-dellobiettivo-complessivo-2030"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
+            >
+              governo Meloni ha rallentato le autorizzazioni per nuovi impianti rinnovabili in
+              Sardegna
+            </a>
+            , e{" "}
+            <a
+              href="https://www.agendadigitale.eu/smart-city/litalia-e-in-linea-sugli-obiettivi-climatici-i-numeri-raccontano-altro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
+            >
+              ha votato contro o si è astenuto su misure UE
+            </a>{" "}
+            come lo stop ai motori endotermici dal 2035, la Nature Restoration Law e il
+            regolamento Euro 7: a marzo 2026 l&apos;Italia aveva raggiunto solo il 33% del
+            proprio obiettivo rinnovabili 2030.
+          </p>
+          <p>
+            Ma i governi di centrosinistra, in Italia e altrove, non hanno fatto meglio quando
+            erano al potere. A livello globale,{" "}
+            <a
+              href="https://www.wri.org/insights/assessing-2025-ndcs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
+            >
+              il 95% dei paesi ha un piano climatico sulla carta
+            </a>{" "}
+            — governato da destra, sinistra o centro non fa differenza — ma le politiche oggi in
+            vigore porterebbero a una riduzione delle emissioni di appena il 2% entro il 2030,
+            contro il 43% necessario per restare sotto gli 1,5°C.
+          </p>
+          <p>
+            Le soluzioni esistono, e in alcuni casi hanno funzionato:{" "}
+            <a
+              href="https://www.science.org/doi/10.1126/science.adl6547"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 underline-offset-2 hover:text-foreground hover:decoration-white/60"
+            >
+              uno studio pubblicato su Science
+            </a>{" "}
+            ha analizzato 1.500 politiche climatiche attuate in due decenni e ne ha trovate 63
+            che hanno prodotto riduzioni reali delle emissioni. Il problema non è la mancanza di
+            soluzioni. È che nessuno schieramento le ha applicate abbastanza.
+          </p>
+        </div>
+      </section>
+
       {/* What CoseDiClima does */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold sm:text-3xl">
@@ -85,7 +149,7 @@ export default function Home() {
         <p className="mt-4 max-w-3xl text-foreground/80">Per ogni frase trovi:</p>
         <ul className="mt-3 max-w-3xl list-inside list-disc space-y-1 text-foreground/80">
           <li>cosa c&apos;è di falso o fuorviante;</li>
-          <li>quale tecnica manipolatoria usa;</li>
+          <li>quale tecnica retorica usa;</li>
           <li>una risposta breve da copiare;</li>
           <li>una spiegazione più completa;</li>
           <li>fonti scientifiche affidabili.</li>
@@ -94,7 +158,7 @@ export default function Home() {
 
       {/* Tecniche teaser */}
       <section className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <h2 className="text-xl font-bold sm:text-2xl">Le tecniche più usate per fregarti.</h2>
+        <h2 className="text-xl font-bold sm:text-2xl">Le tecniche retoriche più comuni nel dibattito climatico.</h2>
         <p className="mt-3 max-w-2xl text-foreground/80">
           Cherry-picking, falso equilibrio, benaltrismo, doomismo: impara a riconoscerle prima
           di cadere nella discussione sbagliata.

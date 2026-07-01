@@ -6,7 +6,8 @@ export type SourceType =
   | "attribution"
   | "peer_reviewed"
   | "data_portal"
-  | "investigative_journalism";
+  | "investigative_journalism"
+  | "fact_checking";
 
 export interface Source {
   id: string;
@@ -63,11 +64,11 @@ export const sources: Source[] = [
   {
     id: "who-climate-health",
     name: "Climate change and health",
-    organization: "WHO — World Health Organization",
+    organization: "OMS — Organizzazione Mondiale della Sanità (WHO)",
     type: "health",
     credibilityNote:
       "Agenzia delle Nazioni Unite per la salute, riferimento globale su rischi sanitari, incluso l'impatto del clima.",
-    keyUse: "Rischi sanitari del cambiamento climatico, mortalità legata al caldo.",
+    keyUse: "Rischi sanitari del cambiamento climatico, mortalità legata al caldo, dichiarazioni ufficiali su ondate di calore in corso.",
     url: "https://www.who.int/health-topics/climate-change",
   },
   {
