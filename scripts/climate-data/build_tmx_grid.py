@@ -5,6 +5,7 @@ for the client-side temperature map.
 Input:  raw/cru_ts4.09.1901.2024.tmx.dat.nc (downloaded + gunzipped separately,
         see README.md for the source URL -- never committed to git)
 Output: ../../public/data/climate-map/tmx-grid-1deg.bin
+        ../../public/data/climate-map/tmx-anomaly-grid-1deg.bin
         ../../public/data/climate-map/tmx-meta.json
 
 Steps:
@@ -17,6 +18,11 @@ Steps:
   4. Quantize to Int16 (x10, 0.1C precision).
   5. Write a flat little-endian Int16 binary (year-major, land-cell order)
      plus a small metadata JSON.
+  6. Also compute a per-cell anomaly grid: each cell's value minus that same
+     cell's own 1901-1930 average ("how much hotter than the early 1900s at
+     this exact spot"). This is what makes the year-to-year warming signal
+     visible with a diverging color scale -- the absolute-temperature scale
+     spans ~60C so a 1-3C year-to-year shift barely moves the color.
 
 IMPORTANT: output grid rows are written north-to-south (row 0 = northernmost
 latitude band) to match standard top-down image/canvas row order. This
@@ -36,6 +42,25 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, "..", "..", "public", "data", "climate-map
 TARGET_RESOLUTION_DEG = 1.0
 SCALE = 10  # store °C * 10 as Int16
 NO_DATA_SENTINEL = -9999
+BASELINE_START_YEAR = 1901
+BASELINE_END_YEAR = 1930  # inclusive, 30-year "climate normal" period
+
+
+def quantize_and_write(stacked, land_cell_indices, out_path):
+    """stacked: (years, height, width) float array, NaN over no-data.
+    Writes a flat little-endian Int16 binary: year-major, land-cell order."""
+    n_years = stacked.shape[0]
+    n_land = len(land_cell_indices)
+    out = np.full((n_years, n_land), NO_DATA_SENTINEL, dtype=np.int16)
+    for y in range(n_years):
+        year_flat = stacked[y].reshape(-1)
+        values = year_flat[land_cell_indices]
+        quantized = np.round(values * SCALE)
+        valid = ~np.isnan(values)
+        out[y, valid] = quantized[valid].astype(np.int16)
+    out.astype("<i2").tofile(out_path)
+    size_mb = os.path.getsize(out_path) / (1024 * 1024)
+    print(f"Wrote {out_path} ({size_mb:.2f} MB)")
 
 
 def block_mean_pool(arr_2d, block_size, lat_ascending):
@@ -99,22 +124,27 @@ def main():
     global_max = np.nanmax(stacked)
     print(f"Global temp range across all years: {global_min:.1f}C to {global_max:.1f}C")
 
-    # build flat Int16 array: year-major, land-cell order
-    n_years = len(years)
-    n_land = len(land_cell_indices)
-    out = np.full((n_years, n_land), NO_DATA_SENTINEL, dtype=np.int16)
-    for y in range(n_years):
-        year_flat = stacked[y].reshape(-1)
-        values = year_flat[land_cell_indices]
-        quantized = np.round(values * SCALE)
-        valid = ~np.isnan(values)
-        out[y, valid] = quantized[valid].astype(np.int16)
-
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     bin_path = os.path.join(OUTPUT_DIR, "tmx-grid-1deg.bin")
-    out.astype("<i2").tofile(bin_path)  # little-endian int16
-    bin_size_mb = os.path.getsize(bin_path) / (1024 * 1024)
-    print(f"Wrote {bin_path} ({bin_size_mb:.2f} MB)")
+    quantize_and_write(stacked, land_cell_indices, bin_path)
+
+    # anomaly: each cell's value minus that cell's own 1901-1930 average
+    baseline_start_idx = years.index(BASELINE_START_YEAR)
+    baseline_end_idx = years.index(BASELINE_END_YEAR)  # inclusive
+    baseline = np.nanmean(stacked[baseline_start_idx : baseline_end_idx + 1], axis=0)
+    anomaly_stacked = stacked - baseline[None, :, :]
+
+    anomaly_min = np.nanmin(anomaly_stacked)
+    anomaly_max = np.nanmax(anomaly_stacked)
+    print(f"Anomaly range vs {BASELINE_START_YEAR}-{BASELINE_END_YEAR}: {anomaly_min:.1f}C to {anomaly_max:.1f}C")
+
+    baseline_years_mean = np.nanmean(anomaly_stacked[baseline_start_idx : baseline_end_idx + 1])
+    recent_years_mean = np.nanmean(anomaly_stacked[-5:])
+    print(f"Sanity check -- mean anomaly over baseline years: {baseline_years_mean:.3f}C (should be ~0)")
+    print(f"Sanity check -- mean anomaly over last 5 years: {recent_years_mean:.2f}C (should be clearly positive)")
+
+    anomaly_bin_path = os.path.join(OUTPUT_DIR, "tmx-anomaly-grid-1deg.bin")
+    quantize_and_write(anomaly_stacked, land_cell_indices, anomaly_bin_path)
 
     lat_min = -90.0
     lon_min = -180.0
@@ -132,6 +162,10 @@ def main():
         "noDataSentinel": NO_DATA_SENTINEL,
         "tempMinC": round(float(global_min), 1),
         "tempMaxC": round(float(global_max), 1),
+        "anomalyMinC": round(float(anomaly_min), 1),
+        "anomalyMaxC": round(float(anomaly_max), 1),
+        "baselineStartYear": BASELINE_START_YEAR,
+        "baselineEndYear": BASELINE_END_YEAR,
         "unit": "celsius",
         "source": "CRU TS v4.09 (tmx), Climatic Research Unit, University of East Anglia",
         "aggregation": "annual max of 12 monthly mean-daily-maximum values per cell",

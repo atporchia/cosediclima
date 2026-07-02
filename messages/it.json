@@ -108,9 +108,14 @@
     "error": "Impossibile caricare i dati della mappa. Riprova più tardi.",
     "hoverPrompt": "Muovi il cursore (o tocca) sulla mappa per vedere la temperatura di un punto.",
     "hoverReading": "{lat}°, {lon}° — {celsius}°C",
+    "hoverReadingAnomaly": "{lat}°, {lon}° — {sign}{celsius}°C",
     "noData": "Nessun dato per questo punto (probabilmente oceano).",
     "sliderAriaLabel": "Seleziona l'anno",
-    "dataSourceLabel": "Dati: CRU TS v4.09, Climatic Research Unit, University of East Anglia."
+    "dataSourceLabel": "Dati: CRU TS v4.09, Climatic Research Unit, University of East Anglia.",
+    "modeAnomaly": "Quanto più caldo",
+    "modeAbsolute": "Temperatura assoluta",
+    "modeAnomalyExplainer": "Differenza rispetto alla media {start}–{end} nello stesso punto: rosso = più caldo, blu = più freddo.",
+    "modeAbsoluteExplainer": "Temperatura massima raggiunta quell'anno in quel punto."
   },
   "VerdictBadge": {
     "falso": "Falso",

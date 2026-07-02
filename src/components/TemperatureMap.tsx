@@ -10,8 +10,15 @@ import {
   pixelToLonLat,
   type ClimateGridData,
 } from "@/lib/climateGrid";
-import { colorForTemp } from "@/lib/tempColorScale";
+import {
+  colorForTemp,
+  colorForAnomaly,
+  tempColorGradientCss,
+  anomalyColorGradientCss,
+} from "@/lib/tempColorScale";
 import ClimateMapLegend from "./ClimateMapLegend";
+
+type Mode = "anomaly" | "absolute";
 
 interface HoverInfo {
   lon: number;
@@ -19,11 +26,17 @@ interface HoverInfo {
   celsius: number | null;
 }
 
+/** Signed normalization: 0 always maps to 0.5, matching colorForAnomaly's own mapping. */
+function anomalyPosition(value: number, minC: number, maxC: number): number {
+  return value >= 0 ? 0.5 + 0.5 * (value / maxC) : 0.5 - 0.5 * (value / minC);
+}
+
 export default function TemperatureMap() {
   const t = useTranslations("TemperatureMap");
   const [data, setData] = useState<ClimateGridData | null>(null);
   const [error, setError] = useState(false);
   const [yearIndex, setYearIndex] = useState(0);
+  const [mode, setMode] = useState<Mode>("anomaly");
   const [hover, setHover] = useState<HoverInfo | null>(null);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -55,8 +68,13 @@ export default function TemperatureMap() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const grid = reconstructYearGrid(data, yearIndex);
+    const source = mode === "anomaly" ? data.anomalyYearData : data.yearData;
+    const grid = reconstructYearGrid(meta, source[yearIndex]);
     currentGridRef.current = grid;
+
+    const domainMin = mode === "anomaly" ? meta.anomalyMinC : meta.tempMinC;
+    const domainMax = mode === "anomaly" ? meta.anomalyMaxC : meta.tempMaxC;
+    const colorFn = mode === "anomaly" ? colorForAnomaly : colorForTemp;
 
     const imageData = ctx.createImageData(meta.gridWidth, meta.gridHeight);
     const pixels = imageData.data;
@@ -67,14 +85,14 @@ export default function TemperatureMap() {
         pixels[offset + 3] = 0;
         continue;
       }
-      const [r, g, b] = colorForTemp(value, meta.tempMinC, meta.tempMaxC);
+      const [r, g, b] = colorFn(value, domainMin, domainMax);
       pixels[offset] = r;
       pixels[offset + 1] = g;
       pixels[offset + 2] = b;
       pixels[offset + 3] = 255;
     }
     ctx.putImageData(imageData, 0, 0);
-  }, [data, yearIndex]);
+  }, [data, yearIndex, mode]);
 
   useEffect(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -114,9 +132,60 @@ export default function TemperatureMap() {
   const { meta } = data;
   const year = meta.years[yearIndex];
 
+  const gradientCss = mode === "anomaly" ? anomalyColorGradientCss() : tempColorGradientCss();
+  const legendTicks =
+    mode === "anomaly"
+      ? [meta.anomalyMinC, meta.anomalyMinC / 2, 0, meta.anomalyMaxC / 2, meta.anomalyMaxC].map(
+          (value) => ({
+            label: `${value > 0 ? "+" : ""}${Math.round(value)}°C`,
+            position: anomalyPosition(value, meta.anomalyMinC, meta.anomalyMaxC),
+          }),
+        )
+      : [0, 0.25, 0.5, 0.75, 1].map((position) => {
+          const value = meta.tempMinC + (meta.tempMaxC - meta.tempMinC) * position;
+          return { label: `${Math.round(value)}°C`, position };
+        });
+
+  const hoverText = !hover
+    ? t("hoverPrompt")
+    : hover.celsius === null
+      ? t("noData")
+      : mode === "anomaly"
+        ? t("hoverReadingAnomaly", {
+            sign: hover.celsius > 0 ? "+" : "",
+            celsius: Math.round(hover.celsius),
+            lat: hover.lat.toFixed(1),
+            lon: hover.lon.toFixed(1),
+          })
+        : t("hoverReading", {
+            celsius: Math.round(hover.celsius),
+            lat: hover.lat.toFixed(1),
+            lon: hover.lon.toFixed(1),
+          });
+
   return (
     <div>
-      <div className="text-center">
+      <div className="flex justify-center gap-2">
+        {(["anomaly", "absolute"] as const).map((m) => (
+          <button
+            key={m}
+            type="button"
+            onClick={() => setMode(m)}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
+              mode === m
+                ? "border-accent bg-accent/15 text-accent"
+                : "border-white/15 text-foreground/60 hover:border-white/30"
+            }`}
+          >
+            {t(m === "anomaly" ? "modeAnomaly" : "modeAbsolute")}
+          </button>
+        ))}
+      </div>
+      <p className="mt-2 text-center text-xs text-foreground/50">
+        {mode === "anomaly" ? t("modeAnomalyExplainer", { start: meta.baselineStartYear, end: meta.baselineEndYear }) : t("modeAbsoluteExplainer")}
+      </p>
+
+      <div className="mt-3 text-center">
         <span className="text-4xl font-extrabold text-accent">{year}</span>
       </div>
 
@@ -144,17 +213,7 @@ export default function TemperatureMap() {
         />
       </div>
 
-      <p className="mt-2 min-h-[1.5rem] text-center text-sm text-foreground/70">
-        {hover
-          ? hover.celsius !== null
-            ? t("hoverReading", {
-                celsius: Math.round(hover.celsius),
-                lat: hover.lat.toFixed(1),
-                lon: hover.lon.toFixed(1),
-              })
-            : t("noData")
-          : t("hoverPrompt")}
-      </p>
+      <p className="mt-2 min-h-[1.5rem] text-center text-sm text-foreground/70">{hoverText}</p>
 
       <input
         type="range"
@@ -166,7 +225,7 @@ export default function TemperatureMap() {
         className="mt-4 w-full accent-accent"
       />
 
-      <ClimateMapLegend minC={meta.tempMinC} maxC={meta.tempMaxC} />
+      <ClimateMapLegend gradientCss={gradientCss} ticks={legendTicks} />
 
       <p className="mt-3 text-xs text-foreground/40">{t("dataSourceLabel")}</p>
     </div>

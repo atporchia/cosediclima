@@ -108,9 +108,14 @@
     "error": "Couldn't load the map data. Please try again later.",
     "hoverPrompt": "Move your cursor (or tap) over the map to see the temperature at a point.",
     "hoverReading": "{lat}°, {lon}° — {celsius}°C",
+    "hoverReadingAnomaly": "{lat}°, {lon}° — {sign}{celsius}°C",
     "noData": "No data for this point (likely ocean).",
     "sliderAriaLabel": "Select the year",
-    "dataSourceLabel": "Data: CRU TS v4.09, Climatic Research Unit, University of East Anglia."
+    "dataSourceLabel": "Data: CRU TS v4.09, Climatic Research Unit, University of East Anglia.",
+    "modeAnomaly": "How much hotter",
+    "modeAbsolute": "Absolute temperature",
+    "modeAnomalyExplainer": "Difference from the {start}–{end} average at that same spot: red = hotter, blue = cooler.",
+    "modeAbsoluteExplainer": "The maximum temperature reached that year at that spot."
   },
   "VerdictBadge": {
     "falso": "False",
