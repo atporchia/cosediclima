@@ -143,6 +143,16 @@ export const sources: Source[] = [
     keyUse: "Documenting undisclosed funding to individual researchers and skeptical organizations.",
     url: "https://climateinvestigations.org",
   },
+  {
+    id: "cru-ts",
+    name: "CRU TS v4.09 — Temperature Grid",
+    organization: "Climatic Research Unit, University of East Anglia / NERC EDS CEDA",
+    type: "data_portal",
+    credibilityNote:
+      "A gridded historical climate dataset produced by the Climatic Research Unit and widely used in peer-reviewed scientific research. Open Government Licence v3.0.",
+    keyUse: "Historical maximum temperature by region, used in the heat map on the Science page.",
+    url: "https://crudata.uea.ac.uk/cru/data/hrg/",
+  },
 ];
 
 export function getSourceById(id: string): Source | undefined {

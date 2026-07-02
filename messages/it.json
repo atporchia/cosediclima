@@ -97,9 +97,20 @@
     "ariaLabel": "Sezioni scienza",
     "tabConsenso": "Il consenso scientifico",
     "tabConflitti": "Chi ha pagato per farti dubitare",
+    "tabMappa": "Mappa del caldo",
     "conflictsIntro": "Ogni caso qui sotto è documentato da inchieste giornalistiche, studi peer-reviewed o ricerche di trasparenza sui finanziamenti — non da sospetti generici. Alcuni dei soggetti citati hanno pubblicamente contestato le conclusioni riportate.",
     "conflictOfInterestLabel": "Conflitto di interesse: ",
-    "evidenceLabel": "Cosa mostrano le prove: "
+    "evidenceLabel": "Cosa mostrano le prove: ",
+    "mapIntro": "La temperatura massima raggiunta ogni anno, terra per terra, dal 1901 a oggi. Sposta lo slider per vedere come è cambiata nel tempo. Solo aree terrestri (dati CRU TS)."
+  },
+  "TemperatureMap": {
+    "loading": "Caricamento dati climatici…",
+    "error": "Impossibile caricare i dati della mappa. Riprova più tardi.",
+    "hoverPrompt": "Muovi il cursore (o tocca) sulla mappa per vedere la temperatura di un punto.",
+    "hoverReading": "{lat}°, {lon}° — {celsius}°C",
+    "noData": "Nessun dato per questo punto (probabilmente oceano).",
+    "sliderAriaLabel": "Seleziona l'anno",
+    "dataSourceLabel": "Dati: CRU TS v4.09, Climatic Research Unit, University of East Anglia."
   },
   "VerdictBadge": {
     "falso": "Falso",

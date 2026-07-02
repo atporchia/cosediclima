@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { ScienceHighlight, IndustryInfluenceCase } from "@/data/scienceWatch";
 import SourceList from "./SourceList";
+import TemperatureMap from "./TemperatureMap";
 
-type TabId = "consenso" | "conflitti";
+type TabId = "consenso" | "conflitti" | "mappa";
 
 export default function ScienzaTabs({
   highlights,
@@ -20,6 +21,7 @@ export default function ScienzaTabs({
   const TABS: { id: TabId; label: string }[] = [
     { id: "consenso", label: t("tabConsenso") },
     { id: "conflitti", label: t("tabConflitti") },
+    { id: "mappa", label: t("tabMappa") },
   ];
 
   const sortedHighlights = [...highlights].sort((a, b) => Number(b.year) - Number(a.year));
@@ -101,6 +103,19 @@ export default function ScienzaTabs({
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div
+        role="tabpanel"
+        id="tabpanel-mappa"
+        aria-labelledby="tab-mappa"
+        hidden={activeTab !== "mappa"}
+        className="mt-6"
+      >
+        <p className="text-sm text-foreground/70">{t("mapIntro")}</p>
+        <div className="mt-4">
+          <TemperatureMap />
         </div>
       </div>
     </div>

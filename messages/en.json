@@ -97,9 +97,20 @@
     "ariaLabel": "Science sections",
     "tabConsenso": "The scientific consensus",
     "tabConflitti": "Who paid to make you doubt it",
+    "tabMappa": "Heat map",
     "conflictsIntro": "Every case below is documented through investigative journalism, peer-reviewed studies, or funding-transparency research — not generic suspicion. Some of the parties named have publicly disputed the findings reported here.",
     "conflictOfInterestLabel": "Conflict of interest: ",
-    "evidenceLabel": "What the evidence shows: "
+    "evidenceLabel": "What the evidence shows: ",
+    "mapIntro": "The maximum temperature reached each year, land area by land area, from 1901 to today. Move the slider to see how it's changed over time. Land areas only (CRU TS data)."
+  },
+  "TemperatureMap": {
+    "loading": "Loading climate data…",
+    "error": "Couldn't load the map data. Please try again later.",
+    "hoverPrompt": "Move your cursor (or tap) over the map to see the temperature at a point.",
+    "hoverReading": "{lat}°, {lon}° — {celsius}°C",
+    "noData": "No data for this point (likely ocean).",
+    "sliderAriaLabel": "Select the year",
+    "dataSourceLabel": "Data: CRU TS v4.09, Climatic Research Unit, University of East Anglia."
   },
   "VerdictBadge": {
     "falso": "False",
