@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
           aria-label={label}
           aria-current={locale === code}
           onClick={() => router.replace(pathname, { locale: code })}
-          className={`rounded px-1.5 py-1 text-lg leading-none transition-opacity ${
+          className={`rounded px-1.5 py-1 text-3xl leading-none transition-opacity ${
             locale === code ? "opacity-100" : "opacity-40 hover:opacity-80"
           }`}
         >
